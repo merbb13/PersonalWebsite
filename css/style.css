@@ -20,6 +20,7 @@ body{
     background-size: cover;
     background-position: center;
     margin-bottom: 0;
+    animation: fadeIn 0.8s linear;
 }
 .logo{
     width: 180px;
@@ -27,11 +28,15 @@ body{
 .container{
     padding: 10px 10%;
 }
+.logo nav{
+    animation: slideInFromLeft 1s ease-in;
+}
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    animation: slideInFromLeft 0.8s ease-in;
 }
 nav ul li{
     display: inline-block;
@@ -88,14 +93,18 @@ nav ul li a:hover::after{
     background: #f0c95e;
     transform: translateY(-10px);
 }
-/*@keyframes slideInFromLeft {
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);
     }
     100% {
       transform: translateX(0);
     }
-  } */
+  } 
 #about{
     padding: 80px 0;
     color: #ababab;
@@ -279,6 +288,17 @@ nav ul li a:hover::after{
 nav .fa-solid{
     display: none;
 }
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+  }
+  
+  .reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+  }
 /* small screens */
 @media only screen and (max-width: 600px){
     #header{
