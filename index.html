@@ -10,6 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/5581480d6e.js" crossorigin="anonymous"></script>
+    <script src="js/swiped-events.js"></script>
     <title>Know Me - Mervin Sagun</title>
 </head>
 
@@ -170,17 +171,25 @@
         }
     }
 
+
     window.addEventListener("scroll", reveal);
 </script>
 
 <script>
     var side = document.getElementById("sidemenu");
     function openmenu() {
+        document.body.style.overflow = "hidden";
         side.style.right = "0";
     }
     function closemenu() {
+        document.body.style.overflow = "visible";
         side.style.right = "-200px";
     }
+    window.addEventListener('swiped-left', function (e) {
+        openmenu();
+    });
+    window.addEventListener("touchmove", closemenu);
+
 </script>
 
 </html>
